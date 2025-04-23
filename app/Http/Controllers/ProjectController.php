@@ -13,7 +13,7 @@ class ProjectController
     public function index()
     {
         $projects = DB::table('project_status')->get();
-        return view('browse', ['projects' => $projects]);
+        return view('Browse', ['projects' => $projects]);
     }
 
     public function consult(Request $request)
