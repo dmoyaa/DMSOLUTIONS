@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotes - DM Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="quotes.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Bienvenido</h2>
+      <nav>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="inicio.html">
+              <i class="fas fa-home menu-icon"></i>
+              <span class="menu-text">Inico</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="browse.html">
+              <i class="fas fa-search menu-icon"></i>
+              <span class="menu-text">Proyectos</span>
+            </a>
+          </li>
+        </ul>
+        <h3 class="sidebar-subtitle">Brochure</h3>
+        <ul class="submenu">
+          <li class="menu-item active">
+            <a href="quotes.html">
+              <i class="fas fa-file-alt menu-icon"></i>
+              <span class="menu-text">Cotizaciones</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="products.html">
+              <i class="fas fa-tshirt menu-icon"></i>
+              <span class="menu-text">Productos</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="clients.html">
+              <i class="fas fa-smile menu-icon"></i>
+              <span class="menu-text">Clientes</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="providers.html">
+                <i class="fas fa-truck menu-icon"></i>
+                <span class="menu-text">Proveedores</span>
+            </a>
+        </li>
+        </ul>
+      </nav>
+      <div class="logout-section">
+        <button class="logout-button">
+          <i class="fas fa-sign-out-alt logout-icon"></i>
+          <span class="logout-text">Cerrar sesión</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+      <header class="header">
+        <h1>COTIZACIONES</h1>
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar Cotizaciones...">
+          <button class="filter-button">
+            <i class="fas fa-filter"></i> Filtros
+          </button>
+          <button class="new-button" id="openModalButton">
+            <i class="fas fa-plus"></i> Nuevo
+          </button>
+        </div>
+      </header>
+      <div class="table-container">
+        <table class="project-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Fecha de expiración</th>
+              <th>Nombre del cliente</th>
+              <th>Teléfono del cliente</th>
+              <th>Horas estimadas</th>
+              <th>Precio total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2025/02/17</td>
+              <td>Maria Luisa Enciso</td>
+              <td>3124303625</td>
+              <td>18</td>
+              <td>4,300.000</td>
+              <td>
+                <div class="action-menu">
+                  <span class="action-dots">•••</span>
+                  <div class="action-dropdown hidden">
+                    <button class="action-btn">Eliminar</button>
+                    <button class="action-btn">Actualizar</button>
+                    <button class="action-btn view-quote-detail">Ver Detalle</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!--Detalle de Cotización -->
+  <div class="modal hidden" id="quoteDetailModal">
+    <div class="modal-content">
+      <h2>Detalle de Cotización</h2>
+
+      <table class="quote-detail-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="quoteDetailBody">
+          <tr>
+            <td>Cámara Sony A7</td>
+            <td>2</td>
+            <td>$120.00</td>
+          </tr>
+          <tr>
+            <td>Lente 50mm</td>
+            <td>1</td>
+            <td>$300.000</td>
+            <td>$300.000</td>
+          </tr>
+          <tr>
+            <td>Trípode Profesional</td>
+            <td>1</td>
+            <td>$150.000</td>
+            <td>$150.000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="quote-summary-table">
+        <tfoot>
+          <tr>
+            <td colspan="3"><strong>Total Materiales:</strong></td>
+            <td id="totalMaterialsPrice">$2,850.000</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Ayudantes (2 personas x 2 días):</strong></td>
+            <td id="helperCost">$400.000</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Supervisor (1 persona x 2 días):</strong></td>
+            <td id="supervisorCost">$300.000</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Mano de obra:</strong></td>
+            <td id="laborCost">$500.000</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Otros costos:</strong></td>
+            <td id="otherCosts">$250.000</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Precio Total:</strong></td>
+            <td id="totalPrice">$4,300.000</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <button id="closeQuoteDetailModal" class="modal-button">Cerrar</button>
+    </div>
+</div>
+
+  <!-- Formulario cotizacion -->
+  <div class="modal hidden" id="newCotizationModal">
+    <div class="modal-content">
+      <h2>Nueva Cotización</h2>
+
+      <form id="quoteForm">
+          <label for="clientName">Nombre o Razón Social</label>
+          <input type="text" id="clientName" placeholder="Nombre o Razón Social" required>
+
+          <div class="document-type">
+              <input type="radio" id="cc" name="document" value="C.C">
+              <label for="cc">C.C</label>
+              <input type="radio" id="nit" name="document" value="Nit">
+              <label for="nit">Nit</label>
+          </div>
+
+          <label for="phone">Teléfono</label>
+          <input type="text" id="phone" placeholder="Teléfono" required>
+
+          <label for="address">Dirección</label>
+          <input type="text" id="address" placeholder="Dirección">
+
+          <label for="email">Correo</label>
+          <input type="email" id="email" placeholder="Correo Electrónico">
+
+          <label for="requirement">Requerimiento</label>
+          <textarea id="requirement" placeholder="Describe tu requerimiento"></textarea>
+
+          <label>Visita Técnica:</label>
+          <div class="radio-group">
+              <input type="radio" id="yes" name="visit" value="Si">
+              <label for="yes">Si</label>
+              <input type="radio" id="no" name="visit" value="No" checked>
+              <label for="no">No</label>
+          </div>
+
+          <label for="calendarInput">Fecha y Hora</label>
+          <input type="text" id="calendarInput" placeholder="Selecciona fecha y hora">
+
+          <h3>Productos</h3>
+          <button type="button" id="addProductButton">Agregar Producto</button>
+
+          <div id="productList">
+              <!-- Aquí se agregarán los productos dinámicamente -->
+          </div>
+
+          <h3>Mano de Obra</h3>
+
+          <label for="estimatedHours">Horas Estimadas de Trabajo</label>
+          <input type="number" id="estimatedHours" placeholder="Horas" min="0">
+
+          <label for="numAssistants">Número de Auxiliares</label>
+          <input type="number" id="numAssistants" placeholder="Número de auxiliares" min="0">
+
+          <label for="assistantSalary">Valor Salario Diario del Auxiliar</label>
+          <input type="number" id="assistantSalary" placeholder="Salario auxiliar" min="0">
+
+          <label for="supervisorFee">Valor Día Supervisor de la Obra</label>
+          <input type="number" id="supervisorFee" placeholder="Valor Supervisor" min="0">
+
+          <label for="otherCosts">Otros Costos</label>
+          <input type="number" id="otherCosts" placeholder="Otros costos" min="0">
+
+          <button type="submit" class="modal-button">Guardar Cotización</button>
+          <button type="button" id="closeNewQuoteModal" class="modal-button">Cerrar</button>
+      </form>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    const openModalButton = document.getElementById('openModalButton');
+    const closeModalButton = document.getElementById('closeNewQuoteModal');
+    const modal = document.getElementById('newCotizationModal');
+    const visitaSi = document.getElementById("yes");
+    const visitaNo = document.getElementById("no");
+    const calendarContainer = document.getElementById("calendarContainer");
+    const calendarInput = document.getElementById("calendarInput");
+    const hourSelectionModal = document.getElementById('hourSelectionModal');
+    const hourForm = document.getElementById('hourForm');
+    const confirmationModal = document.getElementById('confirmationModal');
+    const closeConfirmationModal = document.getElementById('closeConfirmationModal');
+    const actionMenus = document.querySelectorAll('.action-menu');
+
+    document.getElementById("addProductButton").addEventListener("click", function() {
+    const productList = document.getElementById("productList");
+
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("product-entry");
+
+    productDiv.innerHTML = `
+<!--        <input type="text" placeholder="Nombre del producto" class="product-name" required>-->
+        <input type="number" placeholder="Cantidad" class="product-quantity" min="1" required>
+        <input type="number" placeholder="Precio" class="product-price" min="0" required>
+        <button type="button" class="remove-product">❌</button>
+    `;
+
+    productList.appendChild(productDiv);
+
+    const productNameInput = productDiv.querySelector(".product-name");
+    let quantityInput = productDiv.querySelector(".product-quantity");
+    const productPriceInput = productDiv.querySelector(".product-price");
+    const removeButton = productDiv.querySelector(".remove-product");
+
+    // Evento para detectar si el producto contiene "cable"
+    productNameInput.addEventListener("input", function() {
+        if (productNameInput.value.toLowerCase().includes("cable", "CABLE", "Cable")) {
+            // Reemplazar el input de cantidad por un select con opciones de metros
+            const select = document.createElement("select");
+            select.classList.add("product-quantity");
+            select.innerHTML = `
+                <option value="10">10 metros</option>
+                <option value="20">20 metros</option>
+                <option value="30">30 metros</option>
+                <option value="50">50 metros</option>
+                <option value="100">100 metros</option>
+            `;
+            quantityInput.replaceWith(select);
+            quantityInput = select; // Actualizar la referencia
+        } else {
+            // Si se borra "cable", vuelve a ser un input de cantidad normal
+            if (quantityInput.tagName === "SELECT") {
+                const input = document.createElement("input");
+                input.type = "number";
+                input.classList.add("product-quantity");
+                input.placeholder = "Cantidad";
+                input.min = "1";
+                quantityInput.replaceWith(input);
+                quantityInput = input;
+            }
+        }
+    });
+
+    removeButton.addEventListener("click", function() {
+        productDiv.remove();
+    });
+    });
+
+    // Abrir modal de cotización
+    openModalButton.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    // Cerrar modal de cotización
+    closeModalButton.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    // Cerrar modal al hacer clic fuera de él
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+
+    // COTIZACION
+    const quoteDetailModal = document.getElementById("quoteDetailModal");
+    const closeQuoteDetailModal = document.getElementById("closeQuoteDetailModal");
+
+    document.querySelectorAll(".view-quote-detail").forEach(button => {
+      button.addEventListener("click", () => {
+        const tbody = document.getElementById("quoteDetailBody");
+        tbody.innerHTML = "";
+
+        const sampleProducts = [
+          { name: "Cámara Sony A7", quantity: 2, price: 1200 },
+          { name: "Lente 50mm", quantity: 1, price: 300 },
+          { name: "Trípode Profesional", quantity: 1, price: 150 }
+        ];
+
+        let total = 0;
+
+        sampleProducts.forEach(product => {
+          const row = `
+            <tr>
+              <td>${product.name}</td>
+              <td>${product.quantity}</td>
+              <td>$${product.price.toFixed(2)}</td>
+            </tr>
+          `;
+          tbody.innerHTML += row;
+          total += product.quantity * product.price;
+        });
+
+        document.getElementById("totalMaterialsPrice").textContent = `$${total.toFixed(2)}`;
+        quoteDetailModal.classList.remove("hidden");
+      });
+    });
+
+    closeQuoteDetailModal.addEventListener("click", () => {
+      quoteDetailModal.classList.add("hidden");
+    });
+
+    actionMenus.forEach(menu => {
+      const dots = menu.querySelector('.action-dots');
+      const dropdown = menu.querySelector('.action-dropdown');
+
+      dots.addEventListener('click', () => {
+        document.querySelectorAll('.action-dropdown').forEach(drop => {
+          if (drop !== dropdown) {
+            drop.classList.add('hidden');
+          }
+        });
+
+        dropdown.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!menu.contains(event.target)) {
+          dropdown.classList.add('hidden');
+        }
+      });
+    });
+
+    // Abrir modal de cotización
+    openModalButton.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    // Cerrar modal de cotización
+    closeModalButton.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    // CALENDARIO
+
+    let calendarInstance;
+
+    visitaNo.addEventListener("click", () => {
+    calendarInput.value = "";
+    if (calendarInstance) {
+    calendarInstance.destroy();
+    calendarInstance = null;
+    }
+    calendarInput.disabled = true;
+    calendarInput.classList.add("hidden");
+    });
+
+    visitaSi.addEventListener("click", () => {
+    calendarInput.disabled = false;
+    calendarInput.classList.remove("hidden");
+
+    if (calendarInstance) {
+    calendarInstance.destroy();
+    }
+
+    calendarInstance = flatpickr(calendarInput, {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+    });
+    });
+
+    // Cerrar mensaje de confirmación
+    closeConfirmationModal.addEventListener('click', () => {
+      confirmationModal.classList.add('hidden');
+    });
+
+
+</script>
+</body>
+</html>

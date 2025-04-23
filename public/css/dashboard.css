@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.container {
+    display: flex;
+    height: 100%;
+}
+/* Contenido principal (gráficos) */
+.main-content {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Grid para los gráficos */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-gap: 30px; /* Espacio entre los gráficos */
+}
+
+/* Estilo de cada gráfico */
+.chart-container {
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+canvas {
+
+    width: 80% !important;
+    height: auto !important;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-title {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.menu, .submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    padding: 15px 25px;
+    cursor: pointer;
+    color: #333;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item:hover {
+    background-color: #f7f7f7;
+}
+
+.menu-item.active {
+    background-color: #24BFA4;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.menu-icon {
+    margin-right: 15px;
+    font-size: 1.4em;
+    color: #555;
+}
+
+.logout-section {
+    margin-top: auto;
+}
+
+.logout-button {
+    padding: 12px 25px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #555;
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #24BFA4;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 1.8em;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.filter-button, .new-button {
+    background-color: #ffffff;
+    color: #24BFA4;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-button:hover, .new-button:hover {
+    background-color: #f7f7f7;
+}
+
+.filter-button i, .new-button i {
+    margin-right: 5px;
+}
+
+/* Menú emergente de acciones */
+.action-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.action-dots {
+    font-size: 1.5em;
+    color: #888;
+}
+
+.action-dots:hover {
+    color: #000;
+}
+
+/* Menú emergente oculto */
+.action-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    padding: 10px;
+}
+
+.action-dropdown.hidden {
+    display: none;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    text-align: left;
+    color: #555;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: #f7f7f7;
+}
+
+
+/* Tabla */
+.table-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-table {
+    width: 100%;
+    border-collapse: separate;
+    text-align: center;
+}
+
+.project-table th, .project-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-table thead th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+}
+
+.project-table tbody tr:hover {
+    background-color: rgba(36, 191, 164, 0.1);
+}
+
+.project-table .btn {
+    background-color: #24BFA4;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

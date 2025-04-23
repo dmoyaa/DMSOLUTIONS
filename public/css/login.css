@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Titillium Web", sans-serif;
+    background: #24BFA4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form {
+    background: #E3F9F4;
+    padding: 40px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.tab-group {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.tab-group li {
+    flex: 1;
+}
+
+.tab-group a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    background: #f7f7f7;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.tab-group .active a {
+    background: #24BFA4;
+    color: white;
+    font-weight: bold;
+}
+
+.tab-group a:hover {
+    background: #1D9A86;
+    color: white;
+}
+
+.tab-content > div {
+    display: none;
+}
+
+.tab-content > div.active {
+    display: block;
+}
+
+.field-wrap {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input {
+    font-size: 18px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #24BFA4;
+}
+
+.button {
+    background-color: #24BFA4;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #1D9A86;
+}
+
+/* texto Olvidaste tu contraseña */
+.forgot {
+    text-align: right;
+    margin-top: -10px;
+}
+
+.forgot a {
+    color: #24BFA4;
+    text-decoration: none;
+}
+
+.forgot a:hover {
+    text-decoration: underline;
+}
