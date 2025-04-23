@@ -51,12 +51,14 @@
                 $user = session('user_id') ? DB::table('users')->where('id', session('user_id'))->first() : null;
             @endphp
 
+            @if ($user && $user->user_role == '1')
                 <li class="menu-item">
                     <a href="{{ route('administration') }}">
                         <i class="fas fa-pencil menu-icon"></i>
                         <span class="menu-text">Administración</span>
                     </a>
                 </li>
+            @endif
             <li class="menu-item">
                 <a href="{{route('reminders')}}">
                     <i class="fas fa-book menu-icon"></i>
@@ -76,9 +78,9 @@
 </aside>
 
 <script>
-    /*document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         @if(!session('user_id'))
             window.location.href = "{{route("login")}}";
         @endif
-    })*/
+    })
 </script>
