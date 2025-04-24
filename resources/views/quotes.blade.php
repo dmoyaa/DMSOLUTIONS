@@ -15,7 +15,7 @@
 
     <!-- Luego DataTables -->
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 @if(session('status'))
     <script>
