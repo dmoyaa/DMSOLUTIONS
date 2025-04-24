@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - DM Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{asset('css/products.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/products.css')}}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- DataTables CSS -->
@@ -68,7 +68,7 @@
 {{--                                {{ $product->money_exchange }} {{ number_format($product->prod_price_sales, 2) }}--}}
 {{--                                →--}}
 {{--                                {{ number_format($product->precio_convertido, 2) }} COP--}}
-                                <img style="max-width: 85px;" src="{{asset($product -> prod_image)}}" alt="">
+                                <img style="max-width: 85px;" src="{{secure_asset($product -> prod_image)}}" alt="">
                             </td>
                             <td>
                                 <div class="action-menu">
