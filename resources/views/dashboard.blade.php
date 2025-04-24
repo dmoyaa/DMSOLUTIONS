@@ -230,13 +230,12 @@
                     "Cotizaciones sin proyecto por mes"
                 );
             })
-        }
-
         fetch('dashboard/count')
             .then (response => response.json())
             .then (data=>{
-                document.getElementById("totalProjects").textContent = data.map(item => item.cantidad);
-            });
+                document.getElementById("totalProjects").textContent = data;
+            })
+    }
 
 </script>
 </body>
