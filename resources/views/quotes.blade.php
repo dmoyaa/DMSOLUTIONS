@@ -318,7 +318,7 @@
     </div>
 </div>
 
-<!--Convertir a Cotización-->
+<!--Convertir a proyecto-->
 <div class="modal hidden" id="becomeProjectModal">
     <div class="modal-content">
         <h1>PROYECTO NUEVO: </h1> <br>

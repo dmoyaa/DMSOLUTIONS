@@ -36,4 +36,10 @@ class DashboardController
             ->get();
         return $quotesWithoutProjects;
     }
+
+    public function proj_count()
+    {
+        $count = DB::table('projects')->count();
+        return $count;
+    }
 }

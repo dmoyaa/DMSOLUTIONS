@@ -161,7 +161,6 @@
                 console.log(data)
                 keys_status = data.map(item => item.status_name);
                 console.log("CANTIDAAAAAAAAAAAD: ", keys_status.length)
-                document.getElementById("totalProjects").textContent = keys_status.length
                 console.log ("labels",keys_status);
                 value_status = data.map(item => item.cantidad);
                 console.log ("Values",value_status);
@@ -232,6 +231,13 @@
                 );
             })
         }
-    </script>
+
+        fetch('dashboard/count')
+            .then (response => response.json())
+            .then (data=>{
+                document.getElementById("totalProjects").textContent = data.map(item => item.cantidad);
+            });
+
+</script>
 </body>
 </html>
