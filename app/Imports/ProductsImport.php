@@ -24,8 +24,12 @@ class ProductsImport implements ToModel//, WithDrawings
 
     public function model(array $row)
     {
-        if ($row[0] == 'Nombre del Producto') return null; // Omitir encabezado
-
+        if (
+            $row[0] === 'Nombre del Producto' || // encabezado
+            empty(array_filter($row))           // fila vacía (todos los campos vacíos)
+        ) {
+            return null;
+        }
         $nombre = trim($row[0]);
         $referencia = trim($row[1]);
         $descripcion = trim($row[2]);
